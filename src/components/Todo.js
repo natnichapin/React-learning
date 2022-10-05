@@ -1,4 +1,9 @@
 import {useState} from 'react' ; //referencing the library name
+
+import Modal from "./Modal"; //อ้าง path ดีๆ
+import Backdrop from "./Backdrops";
+
+
 function Todo(props) { /* prop ส่งมาเป็น object*/
   const [modalIsOpen,setModalIsopen]= useState(false); //เปลี่ยน state มีการ re-evaluate render 
 
@@ -17,6 +22,9 @@ function deleteHandler() {
           <button className='btn' onClick={deleteHandler} >Delete</button>  
         
         </div>
+        { modalIsOpen && <Modal/>} 
+        { modalIsOpen && <Backdrop />} 
+        
         </div>
       /*</div>*/
       /*  function จะทำงานเมื่อ evaluated code = ใส่ () */
