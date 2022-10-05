@@ -1,15 +1,26 @@
-function Todo(props) {
+import {useState} from 'react' ; //referencing the library name
+function Todo(props) { /* prop ส่งมาเป็น object*/
+  const [modalIsOpen,setModalIsopen]= useState(false); //เปลี่ยน state มีการ re-evaluate render 
+
+function deleteHandler() {
+  setModalIsopen(true);
+
+  }
+  //document.querySelector('button').addEventListener('click') //เกี่ยวกับ Dom //หลังๆจะมีframework มาช่วย
     return (
       /*get rid of html code for add my code*/
-      <div>
-        <h1>{props.text}</h1>
-        <div class='card'> 
-        <h2>TITLE</h2>
-        <div classname='actions'>
-          <button class='btn'>Delete</button>
+     /* <div>
+        <h1>{props.text}</h1>*/
+        <div className='card'> 
+        <h2>{props.text}</h2>
+        <div className='actions'>
+          <button className='btn' onClick={deleteHandler} >Delete</button>  
+        
         </div>
         </div>
-      </div>
+      /*</div>*/
+      /*  function จะทำงานเมื่อ evaluated code = ใส่ () */
+      /*  function จะทำงานเมื่อ click = ไม่ต้องใส่ () */
     );
   }
   
