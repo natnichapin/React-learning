@@ -11,6 +11,13 @@ function deleteHandler() {
   setModalIsopen(true);
 
   }
+
+  function closeModalHandler(){
+    setModalIsopen(false);
+  }
+
+
+
   //document.querySelector('button').addEventListener('click') //เกี่ยวกับ Dom //หลังๆจะมีframework มาช่วย
     return (
       /*get rid of html code for add my code*/
@@ -22,8 +29,8 @@ function deleteHandler() {
           <button className='btn' onClick={deleteHandler} >Delete</button>  
         
         </div>
-        { modalIsOpen && <Modal/>} 
-        { modalIsOpen && <Backdrop />} 
+        { modalIsOpen && <Modal onConfirm={closeModalHandler} onCancle={closeModalHandler}/>} 
+        { modalIsOpen && <Backdrop onCancle={closeModalHandler}/>} 
         
         </div>
       /*</div>*/
